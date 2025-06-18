@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Criar Conta - Blaster</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Blaster</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="login.html">Login</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Criar nova conta</h2>
+    <form id="signup-form">
+      <input type="email" id="signup-email" placeholder="Email" required /><br />
+      <input type="password" id="signup-password" placeholder="Senha" required /><br />
+      <button type="submit">Cadastrar</button>
+    </form>
+    <p id="signup-error" style="color:red;"></p>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Blaster. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    const signupForm = document.getElementById('signup-form');
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          window.location.href = 'download.html';
+        })
+        .catch((error) => {
+          document.getElementById('signup-error').innerText = error.message;
+        });
+    });
+  </script>
+</body>
+</html>
