@@ -1,11 +1,13 @@
-// Substitua pelos seus dados do Firebase
+// Configuração do Firebase para o site Blaster
 const firebaseConfig = {
-  apiKey: "SUA_API_KEY",
-  authDomain: "SEU_PROJETO.firebaseapp.com",
-  projectId: "SEU_PROJETO",
-  storageBucket: "SEU_PROJETO.appspot.com",
-  messagingSenderId: "SEU_SENDER_ID",
-  appId: "SEU_APP_ID"
+  apiKey: "AIzaSyCaqy8ZHh2F8JzKwqo2j4yPkGaXkVFdmBA",
+  authDomain: "blaster-site.firebaseapp.com",
+  projectId: "blaster-site",
+  storageBucket: "blaster-site.appspot.com", // corrigido
+  messagingSenderId: "1033435427207",
+  appId: "1:1033435427207:web:793cc8cec9c869dedaa322",
+  measurementId: "G-SQT2SKWB6G"
 };
 
+// Inicializa o Firebase (modo compatível com <script>)
 firebase.initializeApp(firebaseConfig);
