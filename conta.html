@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minha Conta - Blaster</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Minha Conta</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="download.html">Download</a>
+      <button id="logout" class="logout-btn">Sair</button>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Informações da conta</h2>
+    <p><strong>Email logado:</strong> <span id="user-email">Carregando...</span></p>
+
+    <h3>Enviar feedback</h3>
+    <textarea rows="5" cols="40" placeholder="Digite aqui seu feedback..."></textarea><br>
+    <button>Enviar</button>
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById('user-email').innerText = user.email;
+      } else {
+        window.location.href = "login.html";
+      }
+    });
+
+    document.getElementById('logout').addEventListener('click', () => {
+      firebase.auth().signOut().then(() => {
+        window.location.href = 'index.html';
+      });
+    });
+  </script>
+</body>
+</html>
