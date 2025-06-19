@@ -12,7 +12,7 @@
     <nav>
       <a href="index.html">Início</a>
       <a href="download.html">Download</a>
-      <button id="logout" class="logout-btn">Sair</button>
+      <button id="logout" class="logout-btn">🔒 Logout</button>
     </nav>
   </header>
 
@@ -21,9 +21,17 @@
     <p><strong>Email logado:</strong> <span id="user-email">Carregando...</span></p>
 
     <h3>Enviar feedback</h3>
-    <textarea rows="5" cols="40" placeholder="Digite aqui seu feedback..."></textarea><br>
-    <button>Enviar</button>
+    <form action="https://formsubmit.co/el/rogaxe" method="POST">
+      <textarea name="message" rows="6" cols="40" placeholder="Digite seu feedback aqui..." required></textarea><br>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Novo feedback do site Blaster">
+      <button type="submit">Enviar Feedback</button>
+    </form>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Blaster. Todos os direitos reservados.</p>
+  </footer>
 
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
